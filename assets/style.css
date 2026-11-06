@@ -1,0 +1,280 @@
+/* ISPOR Europe 2026 — poster microsite
+   Mobile-first. No web fonts, no external requests: congress wifi is unreliable. */
+
+:root {
+  --navy:    #12314f;
+  --navy-d:  #0b2238;
+  --teal:    #1f7a7a;
+  --teal-l:  #2e9b9b;
+  --copper:  #b06a3b;
+
+  --bg:      #ffffff;
+  --surface: #f4f6f8;
+  --border:  #dfe4ea;
+  --ink:     #16202b;
+  --ink-mid: #4a5a6a;
+  --ink-dim: #6b7a8a;
+
+  --radius: 10px;
+  --maxw: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:      #0e1620;
+    --surface: #17222f;
+    --border:  #26333f;
+    --ink:     #e8edf2;
+    --ink-mid: #b3c0cc;
+    --ink-dim: #8d9bA8;
+    --teal:    #3fb3b3;
+    --teal-l:  #58c9c9;
+    --copper:  #d08a5a;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:      #0e1620;
+  --surface: #17222f;
+  --border:  #26333f;
+  --ink:     #e8edf2;
+  --ink-mid: #b3c0cc;
+  --ink-dim: #8d9ba8;
+  --teal:    #3fb3b3;
+  --teal-l:  #58c9c9;
+  --copper:  #d08a5a;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+/* ---- Masthead ---- */
+
+.masthead {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 16px 20px;
+  margin-bottom: 28px;
+}
+.masthead-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9fc3c3;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+.masthead .code {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 13px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin-top: 4px;
+}
+
+/* ---- Type ---- */
+
+h1 {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 36px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+h3 { font-size: 1rem; margin: 20px 0 6px; }
+
+p { margin: 0 0 14px; }
+
+.authors {
+  color: var(--ink-mid);
+  font-size: 0.95rem;
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+.authors .me { font-weight: 600; color: var(--ink); }
+
+.affil {
+  color: var(--ink-dim);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0 0 4px;
+}
+
+/* ---- Key findings ---- */
+
+.findings { margin: 0; padding: 0; list-style: none; }
+.findings li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.findings strong { display: block; margin-bottom: 2px; }
+.findings .stat {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+  display: block;
+  margin-bottom: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Buttons ---- */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 24px 0 8px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  text-align: center;
+  transition: filter 0.12s ease;
+}
+.btn:active { filter: brightness(0.92); }
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--border);
+}
+.btn .sz { font-weight: 400; opacity: 0.8; font-size: 0.85rem; }
+
+/* ---- Tables ---- */
+
+.tbl-scroll { overflow-x: auto; margin: 0 0 16px; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+}
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--surface);
+  font-weight: 600;
+  white-space: nowrap;
+}
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---- Notes / refs ---- */
+
+.note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: var(--ink-mid);
+}
+.refs { font-size: 0.82rem; color: var(--ink-mid); padding-left: 1.4em; }
+.refs li { margin-bottom: 7px; }
+
+a { color: var(--teal); }
+
+/* ---- Poster cards (hub) ---- */
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+.card .card-code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  color: var(--copper);
+  font-weight: 600;
+}
+.card .card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin: 6px 0 6px;
+  color: var(--ink);
+}
+.card .card-meta { font-size: 0.85rem; color: var(--ink-dim); }
+.card .card-go { color: var(--teal); font-weight: 600; font-size: 0.9rem; margin-top: 10px; display: block; }
+
+/* ---- Footer ---- */
+
+footer {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+}
+footer p { margin: 0 0 8px; }
+
+.todo {
+  background: #fff6e5;
+  border: 1px dashed var(--copper);
+  color: #6b4a22;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .todo { background: #2a2113; color: #e8c9a0; }
+}
+
+@media (min-width: 560px) {
+  body { font-size: 18px; }
+  h1 { font-size: 1.95rem; }
+  .actions { flex-direction: row; }
+  .actions .btn { flex: 1; }
+}
